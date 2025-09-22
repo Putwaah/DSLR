@@ -49,7 +49,7 @@ def count_describe(series):
         "25%": q25,
         "50%": q50,
         "75%": q75,
-        "interquart": iq,
+        "interpercent": iq,
         "range": range
     }
 
@@ -109,7 +109,7 @@ def display_describe(fichier_csv):
         for col in numerics:
             results[col] = count_describe(df[col])
 
-        stats_names = ["count", "mean", "std", "min", "max", "25%", "50%", "75%", "interquart", "range"]
+        stats_names = ["count", "mean", "std", "min", "max", "25%", "50%", "75%", "interpercent", "range"]
 
         # Trunc les noms longs
         def truncate(col, max_len=12):
@@ -159,7 +159,9 @@ def main():
     fichier_csv = sys.argv[1]
     display_describe(fichier_csv)
     display_describe_bonus(fichier_csv)    
-
-
+    print("-" * 50)
+    df = pd.read_csv(fichier_csv)
+    nonnumerics = df.select_dtypes(include=["object"]).columns
+    print(df.describe())
 if __name__ == "__main__":
     main()
