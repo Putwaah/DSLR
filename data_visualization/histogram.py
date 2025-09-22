@@ -13,6 +13,7 @@ LOG = setup_logger()
 OUTDIR = "histograms"
 FILE = "../datasets/dataset_train.csv"
 
+
 # =============================== FONCTIONS ====================================
 def recup_data_csv(file: str) -> pd.DataFrame:
     """
@@ -69,13 +70,13 @@ def recup_data_csv(file: str) -> pd.DataFrame:
 
 
 #------------------------------------------------------------------------------
-def histogram(df: pd.DataFrame, cours: list[str]):
+def histogram_visualization(df: pd.DataFrame, cours: list[str]):
     """
     Trace la distribution des notes pour chaque cours, séparée par maison.
     """
 
     # Création le dossier si inexistant
-    os.makedirs(OUTDIR, exist_ok=True)
+    os.makedirs(OUTDIR, exist_ok=True)  # crée le dossier si inexistant
     maisons = df["Hogwarts House"].unique()
 
     for c in cours:
@@ -100,7 +101,65 @@ def histogram(df: pd.DataFrame, cours: list[str]):
         filepath = os.path.join(OUTDIR, f"histogram_{c.replace(' ', '_')}.png")
         plt.savefig(filepath)
         plt.close()
-        plt.close()
+
+
+#------------------------------------------------------------------------------
+def histogram(df: pd.DataFrame, course: str):
+    """
+    Trace la distribution des notes pour un cours donné, séparée par maison.
+    Sauvegarde le graphe dans un dossier.
+    """
+
+    if course not in df.columns:
+        raise ValueError(f"Le cours '{course}' n'existe pas dans le DataFrame.")
+
+
+    plt.figure(figsize=(8, 6))
+    for house in df["Hogwarts House"].unique():
+        subset = df[df["Hogwarts House"] == house][course].dropna()
+        plt.hist(
+            subset,
+            bins=20,
+            alpha=0.5,
+            label=house
+        )
+
+    plt.title(f"Distribution des notes en {course} par maison")
+    plt.xlabel("Note")
+    plt.ylabel("Fréquence")
+    plt.legend(title="Maison")
+    plt.tight_layout()
+    plt.savefig("histogram.png")
+
+
+#------------------------------------------------------------------------------
+def histogram(df: pd.DataFrame, course: str):
+    """
+    Trace la distribution des notes pour un cours donné, séparée par maison.
+    Sauvegarde le graphe dans un dossier.
+    """
+
+
+    if course not in df.columns:
+        raise ValueError(f"Le cours '{course}' n'existe pas dans le DataFrame.")
+
+
+    plt.figure(figsize=(8, 6))
+    for house in df["Hogwarts House"].unique():
+        subset = df[df["Hogwarts House"] == house][course].dropna()
+        plt.hist(
+            subset,
+            bins=20,
+            alpha=0.5,
+            label=house
+        )
+
+    plt.title(f"Distribution des notes en {course} par maison")
+    plt.xlabel("Note")
+    plt.ylabel("Fréquence")
+    plt.legend(title="Maison")
+    plt.tight_layout()
+    plt.savefig("histogram.png")
 
 
 #------------------------------------------------------------------------------
@@ -115,15 +174,19 @@ def main() -> int:
         # [1]. Récupération des données :
         data = recup_data_csv(FILE)
 
-        # [2]. Récupérer les différents cours:
+        # [2]. Récupérer les différents cours et calculer la moyenne des notes par maison et par cours:
         if "Hogwarts House" not in data.columns:
             raise ValueError("Colonne 'Hogwarts House' manquante dans le dataset.")
         no_cours = ["Hogwarts House", "First Name", "Last Name", "Birthday", "Best Hand"]
         cours = [col for col in data.columns if col not in no_cours and col != "Index"]
         LOG.info(f"Cours détectés : {cours}")
 
-        # [3].Histogramme matplotlib :
-        histogram(data, cours)
+        # [3]. Histogrammes matplotlib :
+        histogram_visualization(data, cours)
+
+        # [4]. Histogramme le plus parlant :
+        source = "Care of Magical Creatures"
+        histogram(data, source)
 
     except FileNotFoundError:
         LOG.critical(f"Erreur CRITIQUE !")
