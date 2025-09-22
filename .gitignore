@@ -1,2 +1,6 @@
-.idea
 env
+.idea
+infos.log
+histograms/
+histogram.png
+__pycache__
