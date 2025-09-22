@@ -13,7 +13,6 @@ LOG = setup_logger()
 OUTDIR = "histograms"
 FILE = "../datasets/dataset_train.csv"
 
-
 # =============================== FONCTIONS ====================================
 def recup_data_csv(file: str) -> pd.DataFrame:
     """
@@ -165,7 +164,7 @@ def histogram(df: pd.DataFrame, course: str):
 #------------------------------------------------------------------------------
 def main() -> int:
     """
-    Fonction programme principal
+    Fonction programme principal>
     """
 
     print("Bienvenue dans le programme Histogram.")
@@ -201,7 +200,7 @@ def main() -> int:
         LOG.info("-----------------------------------------------------------------")
     return 0
 
-
+  
 # ================================= PROGRAMME ==================================
 if __name__ == "__main__":
     sys.exit(main())
