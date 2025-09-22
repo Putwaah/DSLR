@@ -100,7 +100,7 @@ disposant d'une bibliothèque facilitant le tracé et le calcul des propriétés
 
 ## 5. Mandatory Part
 
-> [!DANGER]
+> [!NOTE]
 > Il est fortement recommandé d'effectuer les étapes dans l'ordre suivant.
 
 ### 5.1 Data Analysis
@@ -120,7 +120,7 @@ Dans cette partie, le professeur McGonagall vous demande de créer un programme 
 Ce programme prendra un ensemble de données comme paramètre. Il devra simplement afficher les informations
 relatives à toutes les caractéristiques numériques, comme dans l'exemple suivant :
 
-> [!DANGER]
+> [!IMPORTANT]
 > Il est interdit d'utiliser toute fonction qui effectue le travail à votre place, telle que :
 > count, mean, std, min, max, percentile, etc., quel que soit le
 > langage que vous utilisez. Bien sûr, il est également interdit d'utiliser la
@@ -201,7 +201,7 @@ suggestions :
 - Implémente **stochastic gradient descent**
 - Implémenter d'autres algorithmes d'optimisation (GD par lots, GD par mini-lots ou autres)
 
-> [!DANGER]
+> [!IMPORTANT]
 > La partie bonus ne sera évaluée que si la partie obligatoire est
 > PARFAITE. Parfaite signifie que la partie obligatoire a été entièrement
 > réalisée et fonctionne sans aucun problème. Si vous n'avez pas satisfait à TOUTES
