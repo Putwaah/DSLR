@@ -65,15 +65,21 @@ def recup_data_csv(file: str) -> pd.DataFrame:
 
 
 def pair_plot_data(data: pd.DataFrame, target: str = None) -> None:
+    # Sélectionner uniquement les colonnes numériques
     numeric_cols = data.select_dtypes(include=['float64', 'int64']).columns.tolist()
-    
-    # Si target est numérique, on ne met pas hue
-    hue_arg = target if data[target].dtype == 'object' else None
-    
+    if numeric_cols != "Index":
+        numeric_cols.remove("Index")
+      #  numeric_cols = numeric_cols[:5]
+
+    # Déterminer si on peut utiliser hue (uniquement pour colonne catégorielle)
+    hue_arg = target if target and data[target].dtype == 'object' else None
+
     LOG.info(f"Colonnes numériques utilisées pour le pair plot : {numeric_cols}")
     
-    sns.pairplot(data[numeric_cols + ([target] if target and hue_arg else [])], hue=hue_arg)
-    plt.show()
+    # Affichage du pair plot
+    sns.pairplot(data[numeric_cols + ([target] if hue_arg else [])], hue=hue_arg)
+    plt.savefig("pair_plot.png")
+
 
 
 
