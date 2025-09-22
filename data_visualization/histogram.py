@@ -132,36 +132,6 @@ def histogram(df: pd.DataFrame, course: str):
 
 
 #------------------------------------------------------------------------------
-def histogram(df: pd.DataFrame, course: str):
-    """
-    Trace la distribution des notes pour un cours donné, séparée par maison.
-    Sauvegarde le graphe dans un dossier.
-    """
-
-
-    if course not in df.columns:
-        raise ValueError(f"Le cours '{course}' n'existe pas dans le DataFrame.")
-
-
-    plt.figure(figsize=(8, 6))
-    for house in df["Hogwarts House"].unique():
-        subset = df[df["Hogwarts House"] == house][course].dropna()
-        plt.hist(
-            subset,
-            bins=20,
-            alpha=0.5,
-            label=house
-        )
-
-    plt.title(f"Distribution des notes en {course} par maison")
-    plt.xlabel("Note")
-    plt.ylabel("Fréquence")
-    plt.legend(title="Maison")
-    plt.tight_layout()
-    plt.savefig("histogram.png")
-
-
-#------------------------------------------------------------------------------
 def main() -> int:
     """
     Fonction programme principal>

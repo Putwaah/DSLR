@@ -31,6 +31,7 @@ def setup_logger(level=logging.INFO, log_file: str = "infos.log"):
         level (int): Niveau minimal de log (par défaut INFO).
         log_file (str): Nom du fichier log (par défaut "app.log").
     """
+
     logger = logging.getLogger()
     logger.setLevel(level)
     logger.handlers = []  # reset handlers
