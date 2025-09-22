@@ -54,9 +54,10 @@ def count_describe(series):
     }
 
 def display_describe_bonus(fichier_csv):
+    #recupere la CSv
     df = pd.read_csv(fichier_csv)
     nonnumerics = df.select_dtypes(include=["object"]).columns
-    print(Fore.CYAN + "\nRésumé des colonnes non numériques :" + Fore.RESET)
+    print(Fore.CYAN + "\nResume des colonnes non numeriques :" + Fore.RESET)
 
     for col in nonnumerics:
         print(Fore.LIGHTMAGENTA_EX +f"{col}:"+Fore.RESET)
@@ -66,7 +67,7 @@ def display_describe_bonus(fichier_csv):
         # Valeur la plus frequente
         if col != "Birthday" and col != "First Name" and col != "Last Name":
             mode_val = df[col].mode()[0]
-            print(f"  Valeur la plus fréquente: {mode_val}")
+            print(f"  Valeur la plus frequente: {mode_val}")
 
         # Valeurs manquantes
         if col != "Birthday" and col != "First Name" and col != "Last Name":
@@ -110,25 +111,25 @@ def display_describe(fichier_csv):
 
         stats_names = ["count", "mean", "std", "min", "max", "25%", "50%", "75%", "interquart", "range"]
 
-        # Tronquer les noms longs
+        # Trunc les noms longs
         def truncate(col, max_len=12):
             return (col[:max_len-3] + '...') if len(col) > max_len else col
 
-        # Calculer largeur max par colonne (en tenant compte des valeurs et du nom)
+        # Calculer largeur max par colonne en fonction de len(field)
         col_widths = {}
         for col in numerics:
             name = truncate(col)
             max_val_len = max(len(f"{results[col][stat]:.2f}") for stat in stats_names)
             col_widths[col] = max(len(name), max_val_len) + 2 #pour l'espacement
 
-        # Ligne de séparation
+        # Ligne de separation
         def separator():
             line = "+------------+"
             for col in numerics:
                 line += "-"*col_widths[col] + "+"
             return line
 
-        # Affichage de l'en-tête
+        # Affichage de l'en-tete
         print(separator())
         header =  f"{'Info':<13}|"
         for col in numerics:
@@ -141,7 +142,7 @@ def display_describe(fichier_csv):
         for stat in stats_names:
             row = f"|{stat:<12}|" 
             for col in numerics:
-                val_str = f"{results[col][stat]:.2f}"  # 2 décimales 
+                val_str = f"{results[col][stat]:.2f}"  # 2 decimales 
                 val_str = val_str[:col_widths[col]-2]  # trunc si trop long
                 row += f"{val_str:>{col_widths[col]}}|"
             print(row)
