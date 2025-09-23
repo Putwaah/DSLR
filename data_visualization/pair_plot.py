@@ -73,11 +73,14 @@ def pair_plot_data(data: pd.DataFrame, target: str = None) -> None:
 
     # Déterminer si on peut utiliser hue (uniquement pour colonne catégorielle)
     hue_arg = target if target and data[target].dtype == 'object' else None
-
     LOG.info(f"Colonnes numériques utilisées pour le pair plot : {numeric_cols}")
     
     # Affichage du pair plot
-    sns.pairplot(data[numeric_cols + ([target] if hue_arg else [])], hue=hue_arg)
+    sns.pairplot(data[numeric_cols + ([target] if hue_arg else [])], hue=hue_arg, palette={"Ravenclaw":"yellow",
+                                                                                           "Gryffindor":"red",
+                                                                                           "Slytherin":"green",
+                                                                                           "Hufflepuff":"blue"})
+
     plt.savefig("pair_plot.png")
 
 
@@ -85,11 +88,12 @@ def pair_plot_data(data: pd.DataFrame, target: str = None) -> None:
 
 #------------------------------------------------------------------------------
 def main() -> int:
-    if len(sys.argv) < 2:
-        print("Usage: python pair_plot.py <colonne_target>")
-        sys.exit(1)
+    # if len(sys.argv) < 2:
+    #     print("Usage: python pair_plot.py <colonne_target>")
+    #     sys.exit(1)
 
-    target = sys.argv[1]
+    # target = sys.argv[1]
+
 
     try:
         # Récupération des données
@@ -97,7 +101,7 @@ def main() -> int:
 
         # Affichage du pair plot
         # hue = target car c'est une colonne catégorielle
-        pair_plot_data(data, target=target)
+        pair_plot_data(data, target="Hogwarts House")
 
     except FileNotFoundError:
         LOG.critical("Erreur CRITIQUE !")
