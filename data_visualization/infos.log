@@ -223,3 +223,90 @@
 [2025-09-22 15:05:31] [INFO] Colonnes numériques utilisées pour le pair plot : ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying'] (pair_plot.py:77)
 [2025-09-22 15:05:54] [INFO] Fermeture du programme ! (pair_plot.py:111)
 [2025-09-22 15:05:54] [INFO] ----------------------------------------------------------------- (pair_plot.py:112)
+[2025-09-23 09:26:52] [WARNING] Impossible de convertir la colonne 'Hogwarts House' en numérique. (pair_plot.py:50)
+[2025-09-23 09:26:52] [WARNING] Impossible de convertir la colonne 'First Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:26:52] [WARNING] Impossible de convertir la colonne 'Last Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:26:52] [WARNING] Impossible de convertir la colonne 'Birthday' en numérique. (pair_plot.py:50)
+[2025-09-23 09:26:52] [WARNING] Impossible de convertir la colonne 'Best Hand' en numérique. (pair_plot.py:50)
+[2025-09-23 09:26:52] [INFO] Données du fichier '../datasets/dataset_train.csv' récupérer avec succès :
+   Index Hogwarts House First Name  Last Name    Birthday Best Hand  Arithmancy  ...  Ancient Runes  History of Magic  Transfiguration   Potions  Care of Magical Creatures     Charms  Flying
+0      0      Ravenclaw     Tamara        Hsu  2000-03-30      Left     58384.0  ...     532.484226          5.231058      1039.788281  3.790369                   0.715939 -232.79405  -26.89
+1      1      Slytherin      Erich    Paredes  1999-10-14     Right     67239.0  ...     367.760303          4.107170      1058.944592  7.248742                   0.091674 -252.18425 -113.45
+2      2      Ravenclaw   Stephany      Braun  1999-11-03      Left     23702.0  ...     602.585284          3.555579      1088.088348  8.728531                  -0.515327 -227.34265   30.42
+3      3     Gryffindor      Vesta  Mcmichael  2000-08-19      Left     32667.0  ...     523.982133         -4.809637       920.391449  0.821911                  -0.014040 -256.84675  200.64
+4      4     Gryffindor     Gaston      Gibbs  1998-09-27      Left     60158.0  ...     599.324514         -3.444377       937.434724  4.311066                  -0.264070 -256.38730  157.98
+
+[5 rows x 19 columns] (pair_plot.py:52)
+[2025-09-23 09:26:52] [INFO] Colonnes numériques utilisées pour le pair plot : ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying'] (pair_plot.py:76)
+[2025-09-23 09:27:15] [INFO] Fermeture du programme ! (pair_plot.py:110)
+[2025-09-23 09:27:15] [INFO] ----------------------------------------------------------------- (pair_plot.py:111)
+[2025-09-23 09:33:50] [WARNING] Impossible de convertir la colonne 'Hogwarts House' en numérique. (pair_plot.py:50)
+[2025-09-23 09:33:50] [WARNING] Impossible de convertir la colonne 'First Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:33:50] [WARNING] Impossible de convertir la colonne 'Last Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:33:50] [WARNING] Impossible de convertir la colonne 'Birthday' en numérique. (pair_plot.py:50)
+[2025-09-23 09:33:50] [WARNING] Impossible de convertir la colonne 'Best Hand' en numérique. (pair_plot.py:50)
+[2025-09-23 09:33:50] [INFO] Données du fichier '../datasets/dataset_train.csv' récupérer avec succès :
+   Index Hogwarts House First Name  Last Name    Birthday Best Hand  Arithmancy  ...  Ancient Runes  History of Magic  Transfiguration   Potions  Care of Magical Creatures     Charms  Flying
+0      0      Ravenclaw     Tamara        Hsu  2000-03-30      Left     58384.0  ...     532.484226          5.231058      1039.788281  3.790369                   0.715939 -232.79405  -26.89
+1      1      Slytherin      Erich    Paredes  1999-10-14     Right     67239.0  ...     367.760303          4.107170      1058.944592  7.248742                   0.091674 -252.18425 -113.45
+2      2      Ravenclaw   Stephany      Braun  1999-11-03      Left     23702.0  ...     602.585284          3.555579      1088.088348  8.728531                  -0.515327 -227.34265   30.42
+3      3     Gryffindor      Vesta  Mcmichael  2000-08-19      Left     32667.0  ...     523.982133         -4.809637       920.391449  0.821911                  -0.014040 -256.84675  200.64
+4      4     Gryffindor     Gaston      Gibbs  1998-09-27      Left     60158.0  ...     599.324514         -3.444377       937.434724  4.311066                  -0.264070 -256.38730  157.98
+
+[5 rows x 19 columns] (pair_plot.py:52)
+[2025-09-23 09:33:50] [INFO] Colonnes numériques utilisées pour le pair plot : ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying'] (pair_plot.py:76)
+[2025-09-23 09:34:14] [INFO] Fermeture du programme ! (pair_plot.py:113)
+[2025-09-23 09:34:14] [INFO] ----------------------------------------------------------------- (pair_plot.py:114)
+[2025-09-23 09:35:37] [WARNING] Impossible de convertir la colonne 'Hogwarts House' en numérique. (pair_plot.py:50)
+[2025-09-23 09:35:37] [WARNING] Impossible de convertir la colonne 'First Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:35:37] [WARNING] Impossible de convertir la colonne 'Last Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:35:37] [WARNING] Impossible de convertir la colonne 'Birthday' en numérique. (pair_plot.py:50)
+[2025-09-23 09:35:37] [WARNING] Impossible de convertir la colonne 'Best Hand' en numérique. (pair_plot.py:50)
+[2025-09-23 09:35:37] [INFO] Données du fichier '../datasets/dataset_train.csv' récupérer avec succès :
+   Index Hogwarts House First Name  Last Name    Birthday Best Hand  Arithmancy  ...  Ancient Runes  History of Magic  Transfiguration   Potions  Care of Magical Creatures     Charms  Flying
+0      0      Ravenclaw     Tamara        Hsu  2000-03-30      Left     58384.0  ...     532.484226          5.231058      1039.788281  3.790369                   0.715939 -232.79405  -26.89
+1      1      Slytherin      Erich    Paredes  1999-10-14     Right     67239.0  ...     367.760303          4.107170      1058.944592  7.248742                   0.091674 -252.18425 -113.45
+2      2      Ravenclaw   Stephany      Braun  1999-11-03      Left     23702.0  ...     602.585284          3.555579      1088.088348  8.728531                  -0.515327 -227.34265   30.42
+3      3     Gryffindor      Vesta  Mcmichael  2000-08-19      Left     32667.0  ...     523.982133         -4.809637       920.391449  0.821911                  -0.014040 -256.84675  200.64
+4      4     Gryffindor     Gaston      Gibbs  1998-09-27      Left     60158.0  ...     599.324514         -3.444377       937.434724  4.311066                  -0.264070 -256.38730  157.98
+
+[5 rows x 19 columns] (pair_plot.py:52)
+[2025-09-23 09:35:37] [INFO] Colonnes numériques utilisées pour le pair plot : ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying'] (pair_plot.py:76)
+[2025-09-23 09:35:38] [CRITICAL] Erreur CRITIQUE ! Could not generate a palette for <map object at 0x7f05c29bf0d0> (pair_plot.py:109)
+[2025-09-23 09:35:38] [INFO] Fermeture du programme ! (pair_plot.py:113)
+[2025-09-23 09:35:38] [INFO] ----------------------------------------------------------------- (pair_plot.py:114)
+[2025-09-23 09:36:15] [WARNING] Impossible de convertir la colonne 'Hogwarts House' en numérique. (pair_plot.py:50)
+[2025-09-23 09:36:15] [WARNING] Impossible de convertir la colonne 'First Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:36:15] [WARNING] Impossible de convertir la colonne 'Last Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:36:15] [WARNING] Impossible de convertir la colonne 'Birthday' en numérique. (pair_plot.py:50)
+[2025-09-23 09:36:15] [WARNING] Impossible de convertir la colonne 'Best Hand' en numérique. (pair_plot.py:50)
+[2025-09-23 09:36:15] [INFO] Données du fichier '../datasets/dataset_train.csv' récupérer avec succès :
+   Index Hogwarts House First Name  Last Name    Birthday Best Hand  Arithmancy  ...  Ancient Runes  History of Magic  Transfiguration   Potions  Care of Magical Creatures     Charms  Flying
+0      0      Ravenclaw     Tamara        Hsu  2000-03-30      Left     58384.0  ...     532.484226          5.231058      1039.788281  3.790369                   0.715939 -232.79405  -26.89
+1      1      Slytherin      Erich    Paredes  1999-10-14     Right     67239.0  ...     367.760303          4.107170      1058.944592  7.248742                   0.091674 -252.18425 -113.45
+2      2      Ravenclaw   Stephany      Braun  1999-11-03      Left     23702.0  ...     602.585284          3.555579      1088.088348  8.728531                  -0.515327 -227.34265   30.42
+3      3     Gryffindor      Vesta  Mcmichael  2000-08-19      Left     32667.0  ...     523.982133         -4.809637       920.391449  0.821911                  -0.014040 -256.84675  200.64
+4      4     Gryffindor     Gaston      Gibbs  1998-09-27      Left     60158.0  ...     599.324514         -3.444377       937.434724  4.311066                  -0.264070 -256.38730  157.98
+
+[5 rows x 19 columns] (pair_plot.py:52)
+[2025-09-23 09:36:15] [INFO] Colonnes numériques utilisées pour le pair plot : ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying'] (pair_plot.py:76)
+[2025-09-23 09:36:16] [CRITICAL] Erreur CRITIQUE ! Could not generate a palette for <map object at 0x7f85f29eb0d0> (pair_plot.py:109)
+[2025-09-23 09:36:16] [INFO] Fermeture du programme ! (pair_plot.py:113)
+[2025-09-23 09:36:16] [INFO] ----------------------------------------------------------------- (pair_plot.py:114)
+[2025-09-23 09:38:04] [WARNING] Impossible de convertir la colonne 'Hogwarts House' en numérique. (pair_plot.py:50)
+[2025-09-23 09:38:04] [WARNING] Impossible de convertir la colonne 'First Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:38:04] [WARNING] Impossible de convertir la colonne 'Last Name' en numérique. (pair_plot.py:50)
+[2025-09-23 09:38:04] [WARNING] Impossible de convertir la colonne 'Birthday' en numérique. (pair_plot.py:50)
+[2025-09-23 09:38:04] [WARNING] Impossible de convertir la colonne 'Best Hand' en numérique. (pair_plot.py:50)
+[2025-09-23 09:38:04] [INFO] Données du fichier '../datasets/dataset_train.csv' récupérer avec succès :
+   Index Hogwarts House First Name  Last Name    Birthday Best Hand  Arithmancy  ...  Ancient Runes  History of Magic  Transfiguration   Potions  Care of Magical Creatures     Charms  Flying
+0      0      Ravenclaw     Tamara        Hsu  2000-03-30      Left     58384.0  ...     532.484226          5.231058      1039.788281  3.790369                   0.715939 -232.79405  -26.89
+1      1      Slytherin      Erich    Paredes  1999-10-14     Right     67239.0  ...     367.760303          4.107170      1058.944592  7.248742                   0.091674 -252.18425 -113.45
+2      2      Ravenclaw   Stephany      Braun  1999-11-03      Left     23702.0  ...     602.585284          3.555579      1088.088348  8.728531                  -0.515327 -227.34265   30.42
+3      3     Gryffindor      Vesta  Mcmichael  2000-08-19      Left     32667.0  ...     523.982133         -4.809637       920.391449  0.821911                  -0.014040 -256.84675  200.64
+4      4     Gryffindor     Gaston      Gibbs  1998-09-27      Left     60158.0  ...     599.324514         -3.444377       937.434724  4.311066                  -0.264070 -256.38730  157.98
+
+[5 rows x 19 columns] (pair_plot.py:52)
+[2025-09-23 09:38:04] [INFO] Colonnes numériques utilisées pour le pair plot : ['Arithmancy', 'Astronomy', 'Herbology', 'Defense Against the Dark Arts', 'Divination', 'Muggle Studies', 'Ancient Runes', 'History of Magic', 'Transfiguration', 'Potions', 'Care of Magical Creatures', 'Charms', 'Flying'] (pair_plot.py:76)
+[2025-09-23 09:38:27] [INFO] Fermeture du programme ! (pair_plot.py:114)
+[2025-09-23 09:38:27] [INFO] ----------------------------------------------------------------- (pair_plot.py:115)
