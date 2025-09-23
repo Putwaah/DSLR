@@ -4,7 +4,31 @@
 
 ---
 
+## Sommaire
+
+- [Data Science × Logistic Regression](#data-science--logistic-regression)
+  - [Sommaire](#sommaire)
+  - [1. Avant-propos](#1-avant-propos)
+  - [2. Introduction](#2-introduction)
+  - [3. Objectifs](#3-objectifs)
+  - [4. Instructions générales](#4-instructions-générales)
+    - [4.1 Setup et Usage](#41-setup-et-usage)
+  - [5. Mandatory Part](#5-mandatory-part)
+    - [5.1 Data Analysis](#51-data-analysis)
+    - [5.2 Data Visualization](#52-data-visualization)
+      - [5.2.1 Histogram](#521-histogram)
+      - [5.2.2 Scatter plot](#522-scatter-plot)
+      - [5.2.3 Pair plot](#523-pair-plot)
+    - [5.3 Logistic Regression](#53-logistic-regression)
+  - [6. Bonus Part](#6-bonus-part)
+  - [7. Soumission et évaluation par les pairs](#7-soumission-et-évaluation-par-les-pairs)
+
+----
+
 ## 1. Avant-propos
+
+<details>
+<summary><strong>Biographie de Yann Le Cun</strong></summary>
 
 Voici ce que dit Wikipédia à propos de Yann Le Cun, l'un des pères fondateurs de l'IA :
 
@@ -42,6 +66,7 @@ Research ») à New York, Menlo Park et depuis 2015 à Paris, afin de travailler
 
 En 2016, il a été professeur invité d'informatique à la « Chaire Annuelle
 Informatique et Sciences Numériques » au Collège de France à Paris.
+</details>
 
 ----
 
@@ -95,6 +120,45 @@ disposant d'une bibliothèque facilitant le tracé et le calcul des propriétés
 > [!IMPORTANT]
 > Toute méthode qui effectue tout le travail à votre place (par exemple, la méthode describe()
 > d'un DataFrame pandas) sera considérée comme de la triche.
+
+### 4.1 Setup et Usage
+
+🔹 <strong>Étape 1 : Créer un environnement virtuel</strong>
+
+```bash
+# Créer l'environnement
+python3 -m venv venv
+
+# Activer l'environnement
+source venv/bin/activate
+
+# Desactiver l'environnement
+deactivate
+```
+
+🔹 <strong>Étape 2 : Installer les dépendances</strong>
+
+Mettre a jour pip :
+```bash
+pip install --upgrade pip
+```
+
+
+```bash
+pip install -r requirements.txt
+```
+
+Vérifier l’installation :
+
+```bash
+pip list
+```
+
+Geler les versions :
+
+```bash
+pip freeze > requirements.txt
+```
 
 ----
 
