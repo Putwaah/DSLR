@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 def our_mean(values):
     n = len(values)
@@ -25,3 +26,8 @@ def our_percentile(values, p):
     d0 = values_sorted[int(f)] * (c - k)
     d1 = values_sorted[int(c)] * (k - f)
     return d0 + d1
+
+
+
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
