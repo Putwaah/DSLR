@@ -1,6 +1,5 @@
 import pandas as pd
 import sys
-import math
 from colorama import Back, Fore, Style, deinit, init
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
