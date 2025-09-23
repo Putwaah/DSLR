@@ -4,11 +4,12 @@ import os
 from colorama import Back, Fore, Style, deinit, init
 sys.path.append(os.path.abspath(".."))
 from Data_Utils.logger import setup_logger
+
 # =============================== CONSTANTES ===================================
 LOG = setup_logger()
 
-# =============================== FONCTIONS ====================================
 
+# =============================== FONCTIONS ====================================
 def recup_data_csv(file: str) -> pd.DataFrame:
     """
     Charge un fichier CSV et tente de convertir ses colonnes en numériques.

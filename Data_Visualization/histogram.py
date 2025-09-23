@@ -89,7 +89,7 @@ def main() -> int:
         # [1]. Récupération des données :
         data = recup_data_csv(FILE)
 
-        # [2]. Récupérer les différents cours et calculer la moyenne des notes par maison et par cours:
+        # [2]. Récupérer les différents cours :
         if "Hogwarts House" not in data.columns:
             raise ValueError("Colonne 'Hogwarts House' manquante dans le dataset.")
         no_cours = ["Hogwarts House", "First Name", "Last Name", "Birthday", "Best Hand"]
