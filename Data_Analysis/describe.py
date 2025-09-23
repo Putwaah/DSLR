@@ -2,63 +2,47 @@ import pandas as pd
 import sys
 import math
 from colorama import Back, Fore, Style, deinit, init
-
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from Data_Utils.math import our_mean, our_std, our_percentile
+from Data_Utils.utils import recup_data_csv
 # =============================== FONCTIONS ====================================
-def count_describe(series) :
-    # Supprimer les valeurs null
+
+def count_describe(series):
     values = series.dropna().tolist()
     values.sort()
     n = len(values)
     count = n
 
-    # moyenne
-    mean = sum(values) / n if n > 0 else float('nan')
+    m = our_mean(values)
+    s = our_std(values)
 
-    # racine carre de la variance (x - moy)²
-    variance = sum((x - mean) ** 2 for x in values) / n if n > 0 else float('nan')
-    std = math.sqrt(variance)
-
-    # min et max
     min_val = values[0] if n > 0 else float('nan')
     max_val = values[-1] if n > 0 else float('nan')
-    range = max_val - min_val
+    rng = max_val - min_val
 
-    # percentiles (25%, 50%, 75%)
-    def percentile(p):
-        if n == 0:
-            return float('nan')
-        k = (n - 1) * p
-        f = math.floor(k)
-        c = math.ceil(k)
-        if f == c:
-            return values[int(k)]
-        d0 = values[int(f)] * (c - k)
-        d1 = values[int(c)] * (k - f)
-        return d0 + d1
-
-    q25 = percentile(0.25)
-    q50 = percentile(0.50)
-    q75 = percentile(0.75)
+    q25 = our_percentile(values, 0.25)
+    q50 = our_percentile(values, 0.50)
+    q75 = our_percentile(values, 0.75)
     iq = q75 - q25
 
     return {
         "count": count,
-        "mean": mean,
-        "std": std,
+        "mean": m,
+        "std": s,
         "min": min_val,
         "max": max_val,
         "25%": q25,
         "50%": q50,
         "75%": q75,
         "interpercent": iq,
-        "range": range
+        "range": rng
     }
-
 
 #------------------------------------------------------------------------------
 def display_describe_bonus(fichier_csv):
     #recupere la CSv
-    df = pd.read_csv(fichier_csv)
+    df = recup_data_csv(fichier_csv)
     nonnumerics = df.select_dtypes(include=["object"]).columns
     print(Fore.CYAN + "\nResume des colonnes non numeriques :" + Fore.RESET)
 
@@ -107,7 +91,7 @@ def display_describe_bonus(fichier_csv):
 #------------------------------------------------------------------------------
 def display_describe(fichier_csv):
     try:
-        df = pd.read_csv(fichier_csv)
+        df = recup_data_csv(fichier_csv)
         numerics = df.select_dtypes(include=["number"]).columns
 
         results = {}
@@ -165,10 +149,6 @@ def main():
     fichier_csv = sys.argv[1]
     display_describe(fichier_csv)
     display_describe_bonus(fichier_csv)    
-    print("-" * 50)
-    df = pd.read_csv(fichier_csv)
-    nonnumerics = df.select_dtypes(include=["object"]).columns
-    print(df.describe())
 
 
 # ================================= PROGRAMME ==================================
