@@ -3,6 +3,7 @@ env
 infos.log
 __pycache__
 histograms/
+weights.json
 scatter_plots/
 histogram.png
 pair_plot.png

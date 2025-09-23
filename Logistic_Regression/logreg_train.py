@@ -78,7 +78,7 @@ def main() -> int:
         df = recup_data_csv("../datasets/dataset_train.csv")
         features = ["Herbology", "Defense Against the Dark Arts"] # features trouve grace au pair_plot 
         y = df["Hogwarts House"] # pour recuperer un poids pour chaque maison associe mason a Y
-        X = X = df[features].fillna(0)# associe les features trouve a X
+        X = df[features].fillna(0)# associe les features trouve a X
         X = (X - X.mean()) / X.std()
         X.insert(0, "bias", 1)
         labels = y.unique()
