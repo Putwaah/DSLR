@@ -80,6 +80,7 @@ def pair_plot_data(data: pd.DataFrame, target: str = None) -> None:
                                                                                            "Gryffindor":"red",
                                                                                            "Slytherin":"green",
                                                                                            "Hufflepuff":"blue"})
+
     plt.savefig("pair_plot.png")
 
 
@@ -92,6 +93,7 @@ def main() -> int:
     #     sys.exit(1)
 
     # target = sys.argv[1]
+
 
     try:
         # Récupération des données
