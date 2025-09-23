@@ -25,8 +25,8 @@ def scatter_plot(df: pd.DataFrame, target: str = "Hogwarts House"):
 
     os.makedirs(OUTDIR, exist_ok=True)
 
-    x_col = "Astronomy"
-    y_col = "Defense Against the Dark Arts"
+    x_col = "Defense Against the Dark Arts"
+    y_col = "Astronomy"
 
     plt.figure(figsize=(8, 6))
     sns.scatterplot(
