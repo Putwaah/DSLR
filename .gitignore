@@ -1,6 +1,6 @@
 env
 .idea
 infos.log
+__pycache__
 histograms/
 histogram.png
-__pycache__

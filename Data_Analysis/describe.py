@@ -2,79 +2,66 @@ import pandas as pd
 import sys
 import math
 from colorama import Back, Fore, Style, deinit, init
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+from Data_Utils.math import our_mean, our_std, our_percentile
+from Data_Utils.utils import recup_data_csv
+# =============================== FONCTIONS ====================================
 
 def count_describe(series):
-    # Supprimer les valeurs null
     values = series.dropna().tolist()
     values.sort()
     n = len(values)
     count = n
 
-    # moyenne
-    mean = sum(values) / n if n > 0 else float('nan')
+    m = our_mean(values)
+    s = our_std(values)
 
-    # racine carre de la variance (x - moy)²
-    variance = sum((x - mean) ** 2 for x in values) / n if n > 0 else float('nan')
-    std = math.sqrt(variance)
-
-    # min et max
     min_val = values[0] if n > 0 else float('nan')
     max_val = values[-1] if n > 0 else float('nan')
-    range = max_val - min_val
+    rng = max_val - min_val
 
-    # percentiles (25%, 50%, 75%)
-    def percentile(p):
-        if n == 0:
-            return float('nan')
-        k = (n - 1) * p
-        f = math.floor(k)
-        c = math.ceil(k)
-        if f == c:
-            return values[int(k)]
-        d0 = values[int(f)] * (c - k)
-        d1 = values[int(c)] * (k - f)
-        return d0 + d1
-
-    q25 = percentile(0.25)
-    q50 = percentile(0.50)
-    q75 = percentile(0.75)
+    q25 = our_percentile(values, 0.25)
+    q50 = our_percentile(values, 0.50)
+    q75 = our_percentile(values, 0.75)
     iq = q75 - q25
 
     return {
         "count": count,
-        "mean": mean,
-        "std": std,
+        "mean": m,
+        "std": s,
         "min": min_val,
         "max": max_val,
         "25%": q25,
         "50%": q50,
         "75%": q75,
         "interpercent": iq,
-        "range": range
+        "range": rng
     }
 
+#------------------------------------------------------------------------------
 def display_describe_bonus(fichier_csv):
     #recupere la CSv
-    df = pd.read_csv(fichier_csv)
+    df = recup_data_csv(fichier_csv)
     nonnumerics = df.select_dtypes(include=["object"]).columns
     print(Fore.CYAN + "\nResume des colonnes non numeriques :" + Fore.RESET)
 
     for col in nonnumerics:
-        print(Fore.LIGHTMAGENTA_EX +f"{col}:"+Fore.RESET)
+        print(Fore.LIGHTMAGENTA_EX + f"{col}:"+Fore.RESET)
         print(f"  Type: {df[col].dtype}")
         print(f"  Valeurs uniques: {df[col].nunique()}")
 
-        # Valeur la plus frequente
+        # Valeur la plus frequente :
         if col != "Birthday" and col != "First Name" and col != "Last Name":
             mode_val = df[col].mode()[0]
             print(f"  Valeur la plus frequente: {mode_val}")
 
-        # Valeurs manquantes
+        # Valeurs manquantes :
         if col != "Birthday" and col != "First Name" and col != "Last Name":
             missing = df[col].isna().sum()
             print(f"  Valeurs manquantes: {missing}")
 
-        #Pourcentage droitier
+        # Pourcentage droitier :
         if col == "Best Hand":
             counts = df[col].value_counts(dropna=True)
             total = counts.sum()
@@ -82,12 +69,12 @@ def display_describe_bonus(fichier_csv):
                 pct = count / total * 100
                 print(f"   {hand}: {pct:.2f}%")
                 
-        #Pourcentage maison     
+        # Pourcentage maison :
         colors = {
-    "Gryffindor": Fore.RED,
-    "Hufflepuff": Fore.YELLOW,
-    "Ravenclaw": Fore.LIGHTBLUE_EX,
-    "Slytherin": Fore.GREEN
+            "Gryffindor": Fore.RED,
+            "Hufflepuff": Fore.YELLOW,
+            "Ravenclaw": Fore.LIGHTBLUE_EX,
+            "Slytherin": Fore.GREEN
         }
 
         if col == "Hogwarts House":
@@ -100,9 +87,11 @@ def display_describe_bonus(fichier_csv):
 
     print()
 
+
+#------------------------------------------------------------------------------
 def display_describe(fichier_csv):
     try:
-        df = pd.read_csv(fichier_csv)
+        df = recup_data_csv(fichier_csv)
         numerics = df.select_dtypes(include=["number"]).columns
 
         results = {}
@@ -120,18 +109,18 @@ def display_describe(fichier_csv):
         for col in numerics:
             name = truncate(col)
             max_val_len = max(len(f"{results[col][stat]:.2f}") for stat in stats_names)
-            col_widths[col] = max(len(name), max_val_len) + 2 #pour l'espacement
+            col_widths[col] = max(len(name), max_val_len) + 2   # pour l'espacement
 
         # Ligne de separation
         def separator():
             line = "+------------+"
-            for col in numerics:
-                line += "-"*col_widths[col] + "+"
+            for numeric in numerics:
+                line += "-" * col_widths[numeric] + "+"
             return line
 
         # Affichage de l'en-tete
         print(separator())
-        header =  f"{'Info':<13}|"
+        header = f"{'Info':<13}|"
         for col in numerics:
             header += f"{truncate(col):^{col_widths[col]}}|"
         print(separator())
@@ -152,6 +141,7 @@ def display_describe(fichier_csv):
         print(f"Erreur : {e}")
 
 
+#------------------------------------------------------------------------------
 def main():
     if len(sys.argv) < 2:
         print("Usage: python describe.py <fichier.csv>")
@@ -159,9 +149,8 @@ def main():
     fichier_csv = sys.argv[1]
     display_describe(fichier_csv)
     display_describe_bonus(fichier_csv)    
-    print("-" * 50)
-    df = pd.read_csv(fichier_csv)
-    nonnumerics = df.select_dtypes(include=["object"]).columns
-    print(df.describe())
+
+
+# ================================= PROGRAMME ==================================
 if __name__ == "__main__":
     main()
