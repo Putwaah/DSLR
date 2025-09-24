@@ -42,8 +42,11 @@ def gradient_descent(X, y, alpha=0.1, iterations=5000):
     return theta
 
 #------------------------------------------------------------------------------
+# < 140,Gryffindor          - alpha=0.3, iterations=10000
+# ---
+# > 140,Hufflepuff
 
-def train_one_vs_all(X, y, labels, alpha=0.1, iterations=5000):
+def train_one_vs_all(X, y, labels, alpha=0.1, iterations=10000):
     """
      Entraîne un classifieur "one-vs-all" (ou one-vs-rest) pour la régression logistique multiclasses.
 
@@ -76,13 +79,13 @@ def train_one_vs_all(X, y, labels, alpha=0.1, iterations=5000):
 def main() -> int:
     try:
         df = recup_data_csv("../datasets/dataset_train.csv")
-        features = ["Herbology", "Defense Against the Dark Arts"] # features trouve grace au pair_plot 
+        features = ["Herbology", "Defense Against the Dark Arts", "Astronomy", "Charms", "Flying"] # features trouve grace au pair_plot
         y = df["Hogwarts House"] # pour recuperer un poids pour chaque maison associe mason a Y
         X = df[features].fillna(0)# associe les features trouve a X
         X = (X - X.mean()) / X.std()
         X.insert(0, "bias", 1)
         labels = y.unique()
-        weights = train_one_vs_all(X.values, y.values, labels, alpha=0.1, iterations=1000)
+        weights = train_one_vs_all(X.values, y.values, labels, alpha=0.1, iterations=5000)
         with open("weights.json", "w") as f:
               json.dump(weights, f)
     except FileNotFoundError:
