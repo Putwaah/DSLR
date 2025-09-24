@@ -1,12 +1,11 @@
 # compare_accuracy.py
-import pandas as pd
 import numpy as np
-import json
 import os
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 from sklearn.preprocessing import StandardScaler
-
+import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from Data_Utils.utils import recup_data_csv
 from Data_Utils.math import sigmoid
 
@@ -40,7 +39,6 @@ def predict_one_vs_all(X, all_theta):
         scores = {label: sigmoid(x.dot(theta)) for label, theta in all_theta.items()}
         preds.append(max(scores, key=scores.get))
     return preds
-
 
 # ---------------------------------------------------------------------------
 def main():
