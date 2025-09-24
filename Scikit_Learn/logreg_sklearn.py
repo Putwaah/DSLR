@@ -7,8 +7,8 @@ from sklearn.preprocessing import StandardScaler
 from Data_Utils.utils import recup_data_csv
 
 # =============================== PARAMÈTRES ===================================
-TRAIN_FILE = "datasets/dataset_train.csv"
-TEST_FILE = "datasets/dataset_test.csv"
+TRAIN_FILE = "../datasets/dataset_train.csv"
+TEST_FILE = "../datasets/dataset_test.csv"
 
 # =============================== MAIN =========================================
 def main():

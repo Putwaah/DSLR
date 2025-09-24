@@ -10,7 +10,7 @@ from sklearn.preprocessing import StandardScaler
 from Data_Utils.utils import recup_data_csv
 from Data_Utils.math import sigmoid
 
-TRAIN_FILE = "datasets/dataset_train.csv"
+TRAIN_FILE = "../datasets/dataset_train.csv"
 
 
 # ---------------------------------------------------------------------------
