@@ -75,13 +75,13 @@ def main() -> int:
         df = recup_data_csv("../datasets/dataset_test.csv")
         
         # [2]. Feature  :
-        features = ["Herbology", "Defense Against the Dark Arts"]
+        features = ["Herbology", "Defense Against the Dark Arts", "Astronomy", "Charms", "Flying"]
         X = df[features].fillna(0)# associe les features trouve a X
         
         # [3]. Prediction  :
         predict = predict_house(X, "weights.json")
 		
-        # [3]. Nommage des colonnes et enegistrement du fichier :
+        # [3]. Nommage des colonnes et enregistrement du fichier :
         result = pd.DataFrame(predict, columns=["Hogwarts House"])
         result.insert(0, "Index", range(len(result)))
         result.to_csv("houses.csv", index=False)
