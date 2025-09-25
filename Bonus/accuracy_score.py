@@ -43,7 +43,7 @@ def predict_house(X, file):
 def main() -> int:
     try:
         # [1]. Récupération des données TRAIN (pour accuracy)
-        df_train = recup_data_csv("datasets/dataset_train.csv")
+        df_train = recup_data_csv("../datasets/dataset_train.csv")
 
         # Utiliser exactement les mêmes features qu'à l'entraînement :
         features = ["Herbology", "Defense Against the Dark Arts", "Astronomy", "Charms", "Flying"]
@@ -55,7 +55,7 @@ def main() -> int:
         y_true = df_train["Hogwarts House"]
 
         # [2]. Prédictions sur TRAIN
-        y_pred = predict_house(X_train.copy(), "weights.json")
+        y_pred = predict_house(X_train.copy(), "../weights.json")
 
         # [3]. Accuracy
         acc = accuracy_score(y_true.values, np.array(y_pred))
