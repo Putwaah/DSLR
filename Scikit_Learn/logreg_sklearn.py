@@ -17,7 +17,7 @@ def main():
     df_test = recup_data_csv(TEST_FILE)
 
     # [2] Features identiques à ton implémentation
-    features = ["Herbology", "Defense Against the Dark Arts"]
+    features = ["Herbology", "Defense Against the Dark Arts", "Astronomy", "Charms", "Flying"]
     X_train = df_train[features].fillna(0)
     y_train = df_train["Hogwarts House"]
 

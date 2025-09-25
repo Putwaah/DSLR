@@ -14,18 +14,18 @@ LOG = setup_logger()
 # =============================== FONCTIONS ====================================
 def predict_house(X, file):
     """
-    Prédit la maison de Poudlard pour chaque échantillon dans un DataFrame donné en utilisant 
+    Prédit la maison de Poudlard pour chaque échantillon dans un DataFrame donné en utilisant
     les poids entraînés d'une régression logistique "one-vs-all".
 
     Parameters
     ----------
     X : pandas.DataFrame
-        DataFrame contenant les features des échantillons à prédire. 
+        DataFrame contenant les features des échantillons à prédire.
         Chaque colonne correspond à une feature numérique.
         La normalisation (centrage/réduction) doit être appliquée avant l'appel si nécessaire.
-        
+
     file : str
-        Chemin vers le fichier JSON contenant les poids (theta) pour chaque maison. 
+        Chemin vers le fichier JSON contenant les poids (theta) pour chaque maison.
         Le JSON doit avoir la structure suivante :
         {
             "Ravenclaw": [theta_0, theta_1, ...],
@@ -50,10 +50,10 @@ def predict_house(X, file):
 
     with open(file, "r") as f:
         thetas = json.load(f)
-    X.insert(0, "bias", 1)    
+    X.insert(0, "bias", 1)
     X_values = X.values
     prediction_tab = []
-    
+
     houses = list(thetas.keys())
     for x in X_values:
         scores = {}
@@ -63,29 +63,29 @@ def predict_house(X, file):
         # On prend la maison avec la probabilité maximale
         predicted_house = max(scores, key=scores.get)
         prediction_tab.append(predicted_house)
-    
+
     return prediction_tab
-          
+
 
 #------------------------------------------------------------------------------
 def main() -> int:
-    
+
     try:
         # [1]. Récuperation des données :
         df = recup_data_csv("../datasets/dataset_test.csv")
-        
+
         # [2]. Feature  :
         features = ["Herbology", "Defense Against the Dark Arts", "Astronomy", "Charms", "Flying"]
         X = df[features].fillna(0)# associe les features trouve a X
-        
+
         # [3]. Prediction  :
-        predict = predict_house(X, "weights.json")
-		
+        predict = predict_house(X, "../weights.json")
+
         # [3]. Nommage des colonnes et enregistrement du fichier :
         result = pd.DataFrame(predict, columns=["Hogwarts House"])
         result.insert(0, "Index", range(len(result)))
         result.to_csv("houses.csv", index=False)
-		
+
     except FileNotFoundError:
         LOG.critical("Erreur CRITIQUE !")
         return 2
@@ -103,4 +103,3 @@ def main() -> int:
 # ================================= PROGRAMME ==================================
 if __name__ == "__main__":
     sys.exit(main())
-    
