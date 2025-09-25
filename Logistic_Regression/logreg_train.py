@@ -86,7 +86,7 @@ def main() -> int:
         X.insert(0, "bias", 1)
         labels = y.unique()
         weights = train_one_vs_all(X.values, y.values, labels, alpha=0.1, iterations=5000)
-        with open("weights.json", "w") as f:
+        with open("../weights.json", "w") as f:
               json.dump(weights, f)
     except FileNotFoundError:
         LOG.critical("Erreur CRITIQUE !")

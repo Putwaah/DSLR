@@ -13,7 +13,7 @@ TRAIN_FILE = "../datasets/dataset_train.csv"
 
 
 # ---------------------------------------------------------------------------
-# [1] Fonctions pour ton modèle maison
+# [1] Fonctions pour notre modèle maison
 def gradient_descent(X, y, alpha=0.1, iterations=5000):
     m, n = X.shape
     theta = np.zeros(n)
@@ -55,7 +55,7 @@ def main():
 
     labels = y.unique()
 
-    # ================== Ton modèle maison ==================
+    # ================== Notre modèle maison ==================
     thetas = train_one_vs_all(X_bias, y.values, labels, alpha=0.3, iterations=10_000)
     y_pred_maison = predict_one_vs_all(X_bias, thetas)
     acc_maison = accuracy_score(y, y_pred_maison)
